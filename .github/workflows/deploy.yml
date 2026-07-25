@@ -17,6 +17,12 @@ jobs:
           ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} \
           "echo 'Connected successfully'"
 
+      - name: Show current IP
+        run: |
+          echo "GitHub Actions IP: $(curl -s ifconfig.me)"
+          echo "All GitHub IPs:"
+          curl -s https://api.github.com/meta | jq '.actions'
+
       # - name: Deploy to server via SSH
       #   uses: appleboy/ssh-action@v1.2.3
       #   with:
