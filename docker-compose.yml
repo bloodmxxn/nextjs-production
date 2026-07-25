@@ -1,5 +1,7 @@
 services:
   web:
+    environment:
+      - HOST="repoti.ir"
     build: 
       context: .
       dockerfile: Dockerfile
