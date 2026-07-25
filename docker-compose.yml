@@ -1,11 +1,13 @@
 services:
   web:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: nextjs
     expose:
       - "3000"
+    networks:
+      - appnet
 
   nginx:
     build: ./infra/nginx
@@ -14,3 +16,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
