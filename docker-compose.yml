@@ -1,0 +1,16 @@
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs
+    expose:
+      - "3000"
+
+  nginx:
+    build: ./infra/nginx
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
