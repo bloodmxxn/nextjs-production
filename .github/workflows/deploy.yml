@@ -10,12 +10,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Test SSH connection
-        run: |
-          ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 \
-          -i <(echo "${{ secrets.PRIVATE_KEY }}") \
-          ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} \
-          "echo 'Connected successfully'"
+      # - name: Test SSH connection
+      #   run: |
+      #     ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 \
+      #     -i <(echo "${{ secrets.PRIVATE_KEY }}") \
+      #     ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} \
+      #     "echo 'Connected successfully'"
 
       - name: Show current IP
         run: |
